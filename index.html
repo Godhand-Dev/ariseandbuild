@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arise and Build Retreat | Register Now</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-content">
+      <img src="https://via.placeholder.com/80" alt="Your Profile Picture" class="profile-pic" id="profilePic"/>
+      <div class="linkedin-section">
+        <span>You can also connect with me via</span>
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin fa-2x"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="title">Arise and Build Retreat</h1>
+
+    <!-- Retreat Flyer -->
+    <div class="flyer-container">
+      <img src="https://via.placeholder.com/800x1000/003366/ffffff?text=Arise+and+Build+Retreat+Flyer" 
+           alt="Arise and Build Retreat Flyer" 
+           class="flyer"/>
+    </div>
+
+    <!-- Registration Form -->
+    <section class="form-section">
+      <h2>Register Your Interest</h2>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="fullName">Full Name <span class="required">*</span></label>
+          <input type="text" id="fullName" required />
+        </div>
+
+        <div class="form-group">
+          <label for="inTech">Are You in Tech? <span class="required">*</span></label>
+          <select id="inTech" required>
+            <option value="">Select...</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp Number <span class="required">*</span></label>
+          <input type="tel" id="whatsapp" placeholder="+234 801 234 5678" required />
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender <span class="required">*</span></label>
+          <select id="gender" required>
+            <option value="">Select...</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address <span class="required">*</span></label>
+          <input type="email" id="email" required />
+        </div>
+
+        <button type="submit" class="submit-btn">Register Now</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Success Message Modal -->
+  <div id="successModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <p id="successMessage"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
