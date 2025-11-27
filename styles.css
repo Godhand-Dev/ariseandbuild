@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
@@ -19,12 +19,12 @@ body {
   padding: 20px 0;
 }
 
-/* Header */
+/* ==================== HEADER ==================== */
 .header {
-  background: #003366;
+  background: #0A2647; /* Deep rich blue */
   color: white;
-  padding: 15px 0;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 18px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .header-content {
@@ -34,7 +34,254 @@ body {
 }
 
 .profile-pic {
-  width: 70px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 4px solid white;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.linkedin-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.linkedin-section a {
+  color: #0e76a8;
+  transition: transform 0.3s ease;
+}
+
+.linkedin-section a:hover {
+  transform: scale(1.25);
+}
+
+/* ==================== MAIN TITLE & SUBTITLE ==================== */
+.title {
+  text-align: center;
+  font-size: 3.2rem;
+  margin: 40px 0 8px 0;
+  color: #0A2647;
+  font-weight: 800;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1.65rem;
+  margin: 0 0 50px 0;
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+.subtitle strong {
+  color: #c0392b;
+  font-size: 1.9rem;
+}
+
+/* ==================== FLYER ==================== */
+.flyer-container {
+  text-align: center;
+  margin: 30px 0 60px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.flyer {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+}
+
+.flyer:hover {
+  transform: scale(1.02);
+}
+
+/* ==================== FORM SECTION ==================== */
+.form-section {
+  background: white;
+  padding: 45px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  max-width: 650px;
+  margin: 0 auto 80px;
+}
+
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 35px;
+  color: #0A2647;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #0A2647;
+  font-size: 1.05rem;
+}
+
+.required {
+  color: #e74c3c;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #f9fbfc;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #0A2647;
+  box-shadow: 0 0 12px rgba(10, 38, 71, 0.2);
+  background-color: white;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(to right, #0A2647, #144272);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, #081c36, #0f3350);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(10, 38, 71, 0.3);
+}
+
+.submit-btn:disabled {
+  background: #95a5a6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ==================== SUCCESS MODAL ==================== */
+.modal {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: white;
+  padding: 50px 40px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 90%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: modalPop 0.4s ease-out;
+}
+
+@keyframes modalPop {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #e74c3c;
+}
+
+#successMessage {
+  font-size: 1.35rem;
+  color: #0A2647;
+  line-height: 1.8;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1.35rem;
+    margin-bottom: 40px;
+  }
+  .subtitle strong {
+    font-size: 1.6rem;
+  }
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .form-section {
+    padding: 30px 20px;
+  }
+  .form-section h2 {
+    font-size: 1.7rem;
+  }
+  .modal-content {
+    padding: 40px 25px;
+  }
+  #successMessage {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  .subtitle strong {
+    font-size: 1.4rem;
+  }
+}  width: 70px;
   height: 70px;
   border-radius: 50%;
   border: 3px solid white;
