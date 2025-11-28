@@ -1,6 +1,6 @@
 // UPDATE THESE BEFORE GOING LIVE
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"; // Your Web App URL
-const LINKEDIN_URL = "https://www.linkedin.com/in/temitopeoladokun?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"; // Your LinkedIn
+const LINKEDIN_URL = "https://script.google.com/macros/s/AKfycbyE_zAAO3khfjuxG62AZdHrPHBY4YlpA6OTidlLUJy9IvYeori5Wtnj46IwI0FrBFui/exec"; // Your LinkedIn
 
 // Update LinkedIn link dynamically
 document.querySelector(".linkedin-section a").href = LINKEDIN_URL;
