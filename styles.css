@@ -21,7 +21,7 @@ body {
 
 /* ==================== HEADER ==================== */
 .header {
-  background: #0A2647; /* Deep rich blue */
+  background: #0A2647;
   color: white;
   padding: 18px 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
@@ -31,6 +31,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .profile-pic {
@@ -42,11 +50,16 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+.host-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 .linkedin-section {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 1rem;
+  gap: 10px;
+  font-size: 0.95rem;
 }
 
 .linkedin-section a {
@@ -58,11 +71,23 @@ body {
   transform: scale(1.25);
 }
 
+/ Responsible Design
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile-section {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 /* ==================== MAIN TITLE & SUBTITLE ==================== */
 .title {
   text-align: center;
   font-size: 3.2rem;
-  margin: 40px 0 8px 0;
+  margin: 40px 0 10px;
   color: #0A2647;
   font-weight: 800;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
@@ -71,7 +96,7 @@ body {
 .subtitle {
   text-align: center;
   font-size: 1.65rem;
-  margin: 0 0 50px 0;
+  margin: 0 0 50px;
   color: #e74c3c;
   font-weight: 700;
 }
@@ -81,24 +106,27 @@ body {
   font-size: 1.9rem;
 }
 
-/* ==================== FLYER ==================== */
+/* ==================== FLYER – REDUCED SIZE ==================== */
 .flyer-container {
   text-align: center;
-  margin: 30px 0 60px;
+  margin: 40px auto;
+  max-width: 500px;           /* Reduced from full width */
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
 .flyer {
-  max-width: 100%;
+  width: 100%;
+  max-width: 500px;
   height: auto;
   border-radius: 16px;
   transition: transform 0.4s ease;
+  display: block;
 }
 
 .flyer:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 /* ==================== FORM SECTION ==================== */
@@ -120,7 +148,8 @@ body {
 }
 
 .form-group {
-  margin-bottom: 22px;
+  position: relative;
+  margin-bottom: 1.5rem;
 }
 
 label {
@@ -139,11 +168,11 @@ input,
 select {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid #bbb;
+  border: 1px0.3px solid #bbb;
   border-radius: 10px;
   font-size: 1rem;
-  transition: all 0.3s ease;
   background-color: #f9fbfc;
+  transition: all 0.3s ease;
 }
 
 input:focus,
@@ -152,6 +181,20 @@ select:focus {
   border-color: #0A2647;
   box-shadow: 0 0 12px rgba(10, 38, 71, 0.2);
   background-color: white;
+}
+
+input.error,
+select.error {
+  border-color: #e74c3c !important;
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+}
+
+.error-msg {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 6px;
+  display: block;
 }
 
 .submit-btn {
@@ -174,21 +217,13 @@ select:focus {
   box-shadow: 0 8px 20px rgba(10, 38, 71, 0.3);
 }
 
-.submit-btn:disabled {
-  background: #95a5a6;
-  cursor: not-allowed;
-  transform: none;
-}
-
 /* ==================== SUCCESS MODAL ==================== */
 .modal {
-  display: flex;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: rgba(0, 0, 0, 0.7);
+  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -210,14 +245,8 @@ select:focus {
 }
 
 @keyframes modalPop {
-  from {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
 .close-btn {
@@ -238,6 +267,7 @@ select:focus {
   font-size: 1.35rem;
   color: #0A2647;
   line-height: 1.8;
+  font-weight: 600;
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -247,21 +277,15 @@ select:focus {
   }
   .subtitle {
     font-size: 1.35rem;
-    margin-bottom: 40px;
   }
   .subtitle strong {
     font-size: 1.6rem;
   }
-  .header-content {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
   .form-section {
-    padding: 30px 20px;
+    padding: 35px 25px;
   }
   .form-section h2 {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
   .modal-content {
     padding: 40px 25px;
@@ -281,179 +305,7 @@ select:focus {
   .subtitle strong {
     font-size: 1.4rem;
   }
-}  
-
-.linkedin-section {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.95rem;
-}
-
-.linkedin-section a {
-  color: #0e76a8;
-  transition: transform 0.3s;
-}
-
-.linkedin-section a:hover {
-  transform: scale(1.2);
-}
-
-/* Main Content */
-.title {
-  text-align: center;
-  font-size: 2.8rem;
-  margin: 30px 0;
-  color: #003366;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-}
-
-.flyer-container {
-  text-align: center;
-  margin: 40px 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.flyer {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-/* Form */
-.form-section {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  max-width: 600px;
-  margin: 0 auto 60px;
-}
-
-.form-section h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #003366;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #003366;
-}
-
-.required {
-  color: #e74c3c;
-}
-
-input, select {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border 0.3s;
-}
-
-input:focus, select:focus {
-  outline: none;
-  border-color: #003366;
-  box-shadow: 0 0 8px rgba(0,51,102,0.2);
-}
-
-.submit-btn {
-  width: 100%;
-  padding: 14px;
-  background: #003366;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.submit-btn:hover {
-  background: #002244;
-}
-
-/* Modal */
-.modal {
-  display: flex;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 90%;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  position: relative;
-}
-
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 2rem;
-  cursor: pointer;
-  color: #aaa;
-}
-
-.close-btn:hover {
-  color: #000;
-}
-
-#successMessage {
-  font-size: 1.3rem;
-  color: #003366;
-  font-weight: 600;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .title { font-size: 2.2rem; }
-  .header-content { flex-direction: column; gap: 15px; }
-  .form-section { padding: 25px; }
-}
-
-.form-group {
-  position: relative;
-  margin-bottom: 1.5rem;
-}
-
-input.error, select.error {
-  border-color: #e74c3c !important;
-  box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
-}
-
-.error-msg {
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-input:focus, select:focus {
-  outline: none;
-  border-color: #0A2647;
-  box-shadow: 0 0 8px rgba(10, 38, 71, 0.2);
+  .flyer-container {
+    max-width: 320px;
+  }
 }
