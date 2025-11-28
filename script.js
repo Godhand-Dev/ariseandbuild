@@ -1,6 +1,6 @@
 // UPDATE THESE BEFORE GOING LIVE
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec"; // Your Web App URL
-const LINKEDIN_URL = "https://script.google.com/macros/s/AKfycbyE_zAAO3khfjuxG62AZdHrPHBY4YlpA6OTidlLUJy9IvYeori5Wtnj46IwI0FrBFui/exec";  // Your LinkedIn
+const LINKEDIN_URL = "https://script.google.com/macros/s/AKfycbyR6DwZDv7oREGxIbiogXyIGxTRscqshrL8bOUZ5qDLW2HhHRtj4PiCgHU-YgWfV67z/exec";  // Your LinkedIn
 
 // Update LinkedIn link dynamically
 document.querySelector(".linkedin-section a").href = LINKEDIN_URL;
