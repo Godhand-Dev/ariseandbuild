@@ -32,8 +32,7 @@ form.addEventListener('submit', async (e) => {
     });
 
     // With no-cors, we can't read response, but if it doesn't crash = success
-    successMessage.textContent = 'Thank You for Registering! We Have Responded to You Via Email';
-    modal.classList.remove('hidden');
+  modal.classList.remove('hidden');
     form.reset();
 
   } catch (err) {
