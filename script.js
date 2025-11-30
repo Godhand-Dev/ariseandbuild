@@ -1,5 +1,5 @@
 // script.js  ←  Minimal & Guaranteed to Work
-const form = document.getElementById('registrationForm');
+const form = document.getElementById('registrationForm'); 
 const modal = document.getElementById('successModal');
 const successMessage = document.getElementById('successMessage');
 
