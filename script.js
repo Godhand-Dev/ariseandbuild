@@ -4,7 +4,7 @@ const modal = document.getElementById('successModal');
 const successMessage = document.getElementById('successMessage');
 
 // PASTE YOUR NEW /exec URL HERE (from the fresh deployment)
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzGgzFfuOn5B0lwlFrM6xrHHn42v7ny10nuJt2sx5MqGNBqwYePTqCIcIuAJPdkRcwhiw/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx5xDTpx8oqs646ih-qUmDHChSezOqR83_ULxRwjGRvV6I2Cvih4BOaiO6zjXE6qw7Klw/exec';
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
