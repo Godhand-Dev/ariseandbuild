@@ -1,99 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Christians Tech Retreat</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christian Tech Retreat 2025</title>
+
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="preconnect" href="https://script.googleusercontent.com">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#f0f4f8,#d9e2ec);color:#333;min-height:100vh;line-height:1.6}
+    .container{width:90%;max-width:1200px;margin:0 auto;padding:20px 0}
+    .header{background:#0A2647;color:white;padding:18px 0;box-shadow:0 4px 15px rgba(0,0,0,.15)}
+    .header-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+    .profile-section{display:flex;align-items:center;gap:15px}
+    .profile-pic{width:75px;height:75px;border-radius:50%;border:4px solid white;object-fit:cover}
+    .host-name{font-size:1.1rem;font-weight:600}
+    .linkedin-section{display:flex;align-items:center;gap:10px;font-size:.95rem}
+    .linkedin-section a{color:#0e76a8;transition:.3s}
+    .linkedin-section a:hover{transform:scale(1.3)}
+    .title{text-align:center;font-size:3.2rem;margin:40px 0 10px;color:#0A2647;font-weight:800}
+    .subtitle{text-align:center;font-size:1.65rem;margin-bottom:50px;color:#e74c3c;font-weight:700}
+    .subtitle strong{color:#c0392b;font-size:1.9rem}
+    .flyer-container{max-width:500px;margin:40px auto;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+    .flyer{width:100%;border-radius:16px;display:block;transition:.4s}
+    .flyer:hover{transform:scale(1.03)}
+    .form-section{background:white;padding:45px;border-radius:16px;box-shadow:0 10px 35px rgba(0,0,0,.12);max-width:650px;margin:0 auto 80px}
+    .form-section h2{text-align:center;margin-bottom:35px;color:#0A2647;font-size:2rem;font-weight:700}
+    .form-group{margin-bottom:1.5rem}
+    label{display:block;margin-bottom:8px;font-weight:600;color:#0A2647;font-size:1.05rem}
+    .required{color:#e74c3c}
+    input,select{width:100%;padding:14px 16px;border:2px solid #ddd;border-radius:10px;font-size:1rem;background:#f9fbfc;transition:.3s}
+    input:focus,select:focus{outline:none;border-color:#0A2647;background:white;box-shadow:0 0 12px rgba(10,38,71,.2)}
+    .submit-btn{width:100%;padding:18px;margin-top:15px;background:linear-gradient(to right,#0A2647,#144272);color:white;border:none;border-radius:10px;font-size:1.3rem;font-weight:bold;cursor:pointer;transition:.3s;position:relative}
+    .submit-btn:hover:not(:disabled){background:linear-gradient(to right,#081c36,#0f3350);transform:translateY(-3px);box-shadow:0 10px 25px rgba(10,38,71,.35)}
+    .submit-btn:disabled{background:#95a5a6;cursor:not-allowed;transform:none;opacity:0.8}
+    .submit-btn::after{content:'';display:inline-block;width:20px;height:20px;border:3px solid transparent;border-top-color:white;border-radius:50%;margin-left:15px;opacity:0;animation:spin 1s linear infinite}
+    .submit-btn[submitting]::after{opacity:1}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    
+    .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:flex;justify-content:center;align-items:center;z-index:9999;opacity:0;visibility:hidden;transition:.3s}
+    .modal.show{opacity:1;visibility:visible}
+    .modal-content{background:white;padding:50px 40px;border-radius:16px;text-align:center;max-width:90%;box-shadow:0 8px 25px rgba(0,0,0,.15);animation:pop .4s ease-out;position:relative}
+    @keyframes pop{from{transform:scale(.8);opacity:0}to{transform:scale(1);opacity:1}}
+    .close-btn{position:absolute;top:15px;right:25px;font-size:2.8rem;cursor:pointer;color:#aaa}
+    .close-btn:hover{color:#e74c3c}
+    .another-btn{margin-top:25px;padding:14px 30px;background:#0A2647;color:white;border:none;border-radius:10px;font-size:1.1rem;cursor:pointer;transition:.3s}
+    .another-btn:hover{background:#081c36;transform:translateY(-2px)}
+
+    @media(max-width:768px){
+      .title{font-size:2.5rem}.subtitle{font-size:1.4rem}.form-section{padding:35px 25px}
+      .modal-content{padding:40px 25px}
+    }
+  </style>
 </head>
 <body>
+
   <header class="header">
     <div class="container header-content">
-      <!-- Profile Picture + Name -->
       <div class="profile-section">
-        <img src="IMG-20251122-WA0004.jpg" alt="Temitope Oladokun" class="profile-pic"/>
+        <img src="IMG-20251122-WA0004.jpg" alt="Temitope Oladokun" class="profile-pic">
         <h3 class="host-name">Tèmítọ́pẹ́ Ọládòkun</h3>
       </div>
-
-      <!-- LinkedIn Section -->
       <div class="linkedin-section">
-        <span>You can also connect with me via</span>
-        <a href="https://www.linkedin.com/in/temitopeoladokun/" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin fa-2x"></i>
-        </a>
+        <span>Connect with me on</span>
+        <a href="https://linkedin.com/in/temitopeoladokun" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <!-- Main Title -->
-    <h1 class="title">Christians Tech Retreat</h1>
+    <h1 class="title">Christian Tech Retreat</h1>
+    <div class="subtitle">Registration: <strong>100% Free & Compulsory</strong></div>
 
-    <!-- Subtitle -->
-    <div class="subtitle">
-      Registration: <strong>100% Free and Compulsory</strong>
-    </div>
-
-    <!-- Retreat Flyer -->
     <div class="flyer-container">
-      <img src="flyer.png" 
-           alt="Christians Tech Retreat Flyer" 
-           class="flyer"/>
+      <img src="flyer.png" alt="Retreat Flyer" class="flyer">
     </div>
 
-   <!-- Registration Form -->
-<section class="form-section">
-  <h2>Kindly Fill The Below Form To Register</h2>
-  <form id="registrationForm">
-    <div class="form-group">
-      <label for="fullName">Full Name <span class="required">*</span></label>
-      <input type="text" id="fullName" required />
-    </div>
+    <section class="form-section">
+      <h2>Register Now</h2>
+      <form id="registrationForm" novalidate>
+        <div class="form-group">
+          <label>Full Name <span class="required">*</span></label>
+          <input type="text" id="fullName" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label>Are You in Tech? <span class="required">*</span></label>
+          <select id="inTech" required>
+            <option value="">Select...</option>
+            <option>Yes</option><option>No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number <span class="required">*</span></label>
+          <input type="tel" id="whatsapp" placeholder="801 234 5678" required>
+          <small style="color:#666">e.g. 08010000000</small>
+        </div>
+        <div class="form-group">
+          <label>Gender <span class="required">*</span></label>
+          <select id="gender" required>
+            <option value="">Select...</option>
+            <option>Male</option><option>Female</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Email Address <span class="required">*</span></label>
+          <input type="email" id="email" required autocomplete="email">
+        </div>
+        <button type="submit" id="submitBtn" class="submit-btn">Register Now</button>
+      </form>
+    </section>
+  </main>
 
-    <div class="form-group">
-      <label for="inTech">Are You in Tech? <span class="required">*</span></label>
-      <select id="inTech" required>
-        <option value="">Select...</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="whatsapp">WhatsApp Number <span class="required">*</span></label>
-      <input type="tel" id="whatsapp" placeholder="+234 801 234 5678" required />
-    </div>
-
-    <div class="form-group">
-      <label for="gender">Gender <span class="required">*</span></label>
-      <select id="gender" required>
-        <option value="">Select...</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email Address <span class="required">*</span></label>
-      <input type="email" id="email" required />
-    </div>
-
-    <button type="submit" class="submit-btn">Register Now</button>
-  </form>
-</section>
-
-  <!-- Success Modal -->
-  <div id="successModal" class="modal hidden">
+  <!-- Loading Modal -->
+  <div id="loadingModal" class="modal">
     <div class="modal-content">
-      <span class="close-btn">×</span>
-      <div id="successMessage">
-        <p style="font-size:0.7rem;">Thank You for Registering!</p>
-        <p style="font-size:0.7rem;">We Have Responded to You Via Email</p>
-      </div>
+      <h2>Saving Response...</h2>
+      <p>Please wait a moment</p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">×</span>
+      <h2>Thank You For Registering!</h2>
+      <p>We have responded to you via Email</p>
+      <button onclick="registerAnother()" class="another-btn">Register Another Person</button>
+    </div>
+  </div>
+<script>
+  const form = document.getElementById('registrationForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const loadingModal = document.getElementById('loadingModal');
+  const successModal = document.getElementById('successModal');
+
+  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwS3zgpZVaNDNiNOBxYrF69xiKEx6rLWemgpfmFsq6q6CXTNq7Xc6F_A7Jyh_-Ne8g6uA/exec';
+
+  // Helper: Fully reset button to initial state
+  function resetSubmitButton() {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Register Now';
+    submitBtn.removeAttribute('submitting'); // This stops the spinner!
+  }
+
+  // Helper: Set button to submitting state
+  function setSubmittingState() {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+    submitBtn.setAttribute('submitting', '');
+  }
+
+  function resetFormAndButton() {
+    form.reset();
+    resetSubmitButton();
+    successModal.classList.remove('show');
+    document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  window.registerAnother = function() {
+    resetFormAndButton();
+  };
+
+  form.onsubmit = async e => {
+    e.preventDefault();
+
+    // Prevent double submission
+    if (submitBtn.disabled) return;
+
+    // Show loading + update button
+    loadingModal.classList.add('show');
+    setSubmittingState();
+
+    const whatsappRaw = document.getElementById('whatsapp').value.replace(/\D/g, '');
+    if (whatsappRaw.length < 10) {
+      alert('Please enter a valid WhatsApp number (e.g. 08012345678)');
+      loadingModal.classList.remove('show');
+      resetSubmitButton();
+      return;
+    }
+
+    const data = {
+      fullName: document.getElementById('fullName').value.trim(),
+      email: document.getElementById('email').value.trim().toLowerCase(),
+      whatsapp: '+234' + whatsappRaw.slice(-10),
+      gender: document.getElementById('gender').value,
+      inTech: document.getElementById('inTech').value,
+      timestamp: new Date().toISOString()
+    };
+
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'text/plain' },
+        mode: 'no-cors'
+      });
+
+      // Success path
+      loadingModal.classList.remove('show');
+      successModal.classList.add('show');
+      form.reset();
+      resetSubmitButton(); // Critical: Stop spinner here too!
+
+    } catch (err) {
+      // Error path
+      loadingModal.classList.remove('show');
+      alert('Submission failed. Please check your connection and try again.');
+      resetSubmitButton(); // Always reset button on error
+    }
+  };
+
+  // Close modals when clicking outside or on X
+  document.querySelectorAll('.modal, .close-btn').forEach(el => {
+    el.onclick = (e) => {
+      if (e.target === el || e.target.classList.contains('close-btn')) {
+        loadingModal.classList.remove('show');
+        successModal.classList.remove('show');
+      }
+    };
+  });
+
+  // Close with ESC key
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      loadingModal.classList.remove('show');
+      successModal.classList.remove('show');
+    }
+  });
+</script>
 </body>
 </html>
