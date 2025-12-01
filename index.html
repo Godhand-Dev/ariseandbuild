@@ -17,17 +17,28 @@
     .profile-section{display:flex;align-items:center;gap:15px}
     .profile-pic{width:75px;height:75px;border-radius:50%;border:4px solid white;object-fit:cover}
     .host-name{font-size:1.1rem;font-weight:600}
-    .linkedin-section{display:flex;align-items:center;gap:10px;font-size:.95rem}
-    .linkedin-section a{color:#0e76a8;transition:.3s}
-    .linkedin-section a:hover{transform:scale(1.3)}
-    .title{text-align:center;font-size:3.2rem;margin:40px 0 10px;color:#0A2647;font-weight:800}
-    .subtitle{text-align:center;font-size:1.65rem;margin-bottom:50px;color:#e74c3c;font-weight:700}
-    .subtitle strong{color:#c0392b;font-size:1.9rem}
+
+    /* New LinkedIn Section with Image */
+    .linkedin-section{display:flex;align-items:center;gap:12px;font-size:1rem;font-weight:500;color:rgb(255, 255, 255)}
+    .linkedin-section span{white-space:nowrap}
+    .linkedin-icon{
+      width:40px;
+      height:40px;
+      transition:transform .3s ease;
+      filter:invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+    }
+    .linkedin-icon:hover{
+      transform:scale(1.25);
+    }
+
+    .title{text-align:center;font-size:1.7rem;margin:40px 0 10px;color:#0A2647;font-weight:800}
+    .subtitle{text-align:center;font-size:1rem;margin-bottom:20px;color:#e74c3c;font-weight:700}
+    .subtitle strong{color:#c0392b;font-size:1rem}
     .flyer-container{max-width:500px;margin:40px auto;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.18)}
     .flyer{width:100%;border-radius:16px;display:block;transition:.4s}
     .flyer:hover{transform:scale(1.03)}
     .form-section{background:white;padding:45px;border-radius:16px;box-shadow:0 10px 35px rgba(0,0,0,.12);max-width:650px;margin:0 auto 80px}
-    .form-section h2{text-align:center;margin-bottom:35px;color:#0A2647;font-size:2rem;font-weight:700}
+    .form-section h2{text-align:center;margin-bottom:10px;color:#0A2647;font-size:1.4rem;font-weight:700}
     .form-group{margin-bottom:1.5rem}
     label{display:block;margin-bottom:8px;font-weight:600;color:#0A2647;font-size:1.05rem}
     .required{color:#e74c3c}
@@ -39,7 +50,7 @@
     .submit-btn::after{content:'';display:inline-block;width:20px;height:20px;border:3px solid transparent;border-top-color:white;border-radius:50%;margin-left:15px;opacity:0;animation:spin 1s linear infinite}
     .submit-btn[submitting]::after{opacity:1}
     @keyframes spin{to{transform:rotate(360deg)}}
-    
+
     .modal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);display:flex;justify-content:center;align-items:center;z-index:9999;opacity:0;visibility:hidden;transition:.3s}
     .modal.show{opacity:1;visibility:visible}
     .modal-content{background:white;padding:50px 40px;border-radius:16px;text-align:center;max-width:90%;box-shadow:0 8px 25px rgba(0,0,0,.15);animation:pop .4s ease-out;position:relative}
@@ -50,8 +61,11 @@
     .another-btn:hover{background:#081c36;transform:translateY(-2px)}
 
     @media(max-width:768px){
-      .title{font-size:2.5rem}.subtitle{font-size:1.4rem}.form-section{padding:35px 25px}
-      .modal-content{padding:40px 25px}
+      .title{font-size:2.5rem}
+      .subtitle{font-size:1.4rem}
+      .form-section{padding:35px 25px}
+      .linkedin-icon{width:42px;height:42px}
+      .linkedin-section{font-size:0.95rem;gap:10px}
     }
   </style>
 </head>
@@ -63,9 +77,13 @@
         <img src="IMG-20251122-WA0004.jpg" alt="Temitope Oladokun" class="profile-pic">
         <h3 class="host-name">Tèmítọ́pẹ́ Ọládòkun</h3>
       </div>
+
+      <!-- UPDATED LINKEDIN SECTION WITH YOUR IMAGE -->
       <div class="linkedin-section">
         <span>Connect with me on</span>
-        <a href="https://linkedin.com/in/temitopeoladokun" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/temitopeoladokun" target="_blank" rel="noopener" aria-label="Connect on LinkedIn">
+          <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/1A1A1A/linkedin.png" alt="LinkedIn" class="linkedin-icon">
+        </a>
       </div>
     </div>
   </header>
@@ -89,7 +107,8 @@
           <label>Are You in Tech? <span class="required">*</span></label>
           <select id="inTech" required>
             <option value="">Select...</option>
-            <option>Yes</option><option>No</option>
+            <option>Yes</option>
+            <option>No</option>
           </select>
         </div>
         <div class="form-group">
@@ -101,7 +120,8 @@
           <label>Gender <span class="required">*</span></label>
           <select id="gender" required>
             <option value="">Select...</option>
-            <option>Male</option><option>Female</option>
+            <option>Male</option>
+            <option>Female</option>
           </select>
         </div>
         <div class="form-group">
@@ -127,9 +147,10 @@
       <span class="close-btn">×</span>
       <h2>Thank You For Registering!</h2>
       <p>We have responded to you via Email</p>
-      <button onclick="registerAnother()" class="another-btn">Register Another Person</button>
+      <button onclick="registerAnother()" class="another-btn">Submit Another Response</button>
     </div>
   </div>
+
 <script>
   const form = document.getElementById('registrationForm');
   const submitBtn = document.getElementById('submitBtn');
@@ -138,14 +159,12 @@
 
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwS3zgpZVaNDNiNOBxYrF69xiKEx6rLWemgpfmFsq6q6CXTNq7Xc6F_A7Jyh_-Ne8g6uA/exec';
 
-  // Helper: Fully reset button to initial state
   function resetSubmitButton() {
     submitBtn.disabled = false;
     submitBtn.textContent = 'Register Now';
-    submitBtn.removeAttribute('submitting'); // This stops the spinner!
+    submitBtn.removeAttribute('submitting');
   }
 
-  // Helper: Set button to submitting state
   function setSubmittingState() {
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
@@ -165,11 +184,8 @@
 
   form.onsubmit = async e => {
     e.preventDefault();
-
-    // Prevent double submission
     if (submitBtn.disabled) return;
 
-    // Show loading + update button
     loadingModal.classList.add('show');
     setSubmittingState();
 
@@ -198,21 +214,18 @@
         mode: 'no-cors'
       });
 
-      // Success path
       loadingModal.classList.remove('show');
       successModal.classList.add('show');
       form.reset();
-      resetSubmitButton(); // Critical: Stop spinner here too!
+      resetSubmitButton();
 
     } catch (err) {
-      // Error path
       loadingModal.classList.remove('show');
       alert('Submission failed. Please check your connection and try again.');
-      resetSubmitButton(); // Always reset button on error
+      resetSubmitButton();
     }
   };
 
-  // Close modals when clicking outside or on X
   document.querySelectorAll('.modal, .close-btn').forEach(el => {
     el.onclick = (e) => {
       if (e.target === el || e.target.classList.contains('close-btn')) {
@@ -222,7 +235,6 @@
     };
   });
 
-  // Close with ESC key
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       loadingModal.classList.remove('show');
