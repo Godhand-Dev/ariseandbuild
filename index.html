@@ -61,9 +61,9 @@
     .another-btn:hover{background:#081c36;transform:translateY(-2px)}
 
     @media(max-width:768px){
-      .title{font-size:2.5rem}
-      .subtitle{font-size:1.4rem}
-      .form-section{padding:35px 25px}
+      .title{font-size:1.5rem}
+      .subtitle{font-size: 1.2rem}
+      .form-section{padding:15px 10px}
       .linkedin-icon{width:42px;height:42px}
       .linkedin-section{font-size:0.95rem;gap:10px}
     }
@@ -97,7 +97,7 @@
     </div>
 
     <section class="form-section">
-      <h2>Kindly Fill The Form To Register</h2>
+      <h2>Register Now</h2>
       <form id="registrationForm" novalidate>
         <div class="form-group">
           <label>Full Name <span class="required">*</span></label>
@@ -128,7 +128,7 @@
           <label>Email Address <span class="required">*</span></label>
           <input type="email" id="email" required autocomplete="email">
         </div>
-        <button type="submit" id="submitBtn" class="submit-btn">Submit</button>
+        <button type="submit" id="submitBtn" class="submit-btn">Register Now</button>
       </form>
     </section>
   </main>
@@ -145,9 +145,9 @@
   <div id="successModal" class="modal">
     <div class="modal-content">
       <span class="close-btn">×</span>
-      <h2>Thank You For Registering!</h2>
-      <p>We have responded to you via Email</p>
-      <button onclick="registerAnother()" class="another-btn">Submit Another Response</button>
+      <h4 style="margin-top:15px;">Thank You For Registering!</h4>
+      <p style="font-size:0.8rem">We have responded to you via Email</p>
+      <button  style="font-size:0.7rem" onclick="registerAnother()" class="another-btn">Submit Another Response</button>
     </div>
   </div>
 
